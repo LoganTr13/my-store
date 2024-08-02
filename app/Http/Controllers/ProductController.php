@@ -7,14 +7,18 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function store()
+    public function store(Request $request)
     {
+        $name = $request->input('name');
+        $price = $request->input('price');
+        $description = $request->input('description');
+
         $product = Product::create([
-            "name" => fake()->title(),
-            "description" => fake()->paragraph(),
-            "price" => fake()->randomFloat(min: 10, max: 100)
+            "name" => $name,
+            "price" => $price,
+            "description" => $description
         ]);
-        return response($product);
+        return response($product); // não sei o que retornar, penso em fazer voltar para a pagina de lista, vou ver
     }
     public function show(int $id)
     {

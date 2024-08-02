@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href={{URL::asset('assets/css/global.css')}}>
-    <link rel="stylesheet" href={{URL::asset('assets/css/index.css')}}>
+    <link rel="stylesheet" href={{URL::asset('assets/css/store.css')}}>
     <title>Store</title>
 </head>
 
@@ -19,31 +19,16 @@
         </nav>
     </header>
     <main>
-        <table class="productsTable">
-            <thead>
-                <th>Produto</th>
-                <th>Valor</th>
-                <th>Editar</th>
-                <th>Excluir</th>
-            </thead>
-            <tbody>
-                @foreach ($products as $product)
-                    <tr>
-                        <td>{{$product->name}}</td>
-                        <td>{{$product->price}}</td>
-                        <td>Botão para Editar</td>
-                        <td>Botão para Apagar {{$product->id}}</td>
-                    </tr>
-                @endforeach
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td class="links" colspan="4">
-                        <a href="/store">Criar</a>
-                    </td>
-                </tr>
-            </tfoot>
-        </table>
+        <form action="{{route('products.store')}}" method="post">
+            @csrf
+            <label for="name">Produto: </label>
+            <input type="text" name="name" id="name" placeholder="Nome do Produto">
+            <label for="price">Preço: </label>
+            <input type="text" name="price" id="price" placeholder="Preço">
+            <label for="description">Descrição: </label>
+            <input type="text" name="description" id="description" placeholder="Descrição do Produto">
+            <input type="submit" value="Enviar">
+        </form>
     </main>
 </body>
 

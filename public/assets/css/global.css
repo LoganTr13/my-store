@@ -1,0 +1,14 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin:0px;
+}
+nav{
+    background-color: #1C6EA4;
+    padding: 1em;
+    display: flex;
+    flex-direction: row-reverse;
+}
+main{
+    margin-inline: auto;
+    width: 70vw;
+}

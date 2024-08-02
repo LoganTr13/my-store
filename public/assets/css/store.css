@@ -1,0 +1,21 @@
+form{
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    margin-top: 5em;
+    margin-inline: auto;
+}
+input{
+    margin: .7em;
+    padding: .5em;
+    border-radius: 7px;
+}
+input:hover{
+    cursor: pointer;
+}
+input[type="submit"]{
+    background-color: rgb(68, 122, 68);
+}
+input[type="submit"]:hover{
+    background-color: rgb(25, 68, 25);
+}
