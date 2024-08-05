@@ -21,24 +21,81 @@
     <main>
         <table class="productsTable">
             <thead>
+                <th>Id</th>
                 <th>Produto</th>
                 <th>Valor</th>
+                <th>Descrição</th>
+                <th>Visualizar</th>
+                <th>Carrinho</th>
                 <th>Editar</th>
                 <th>Excluir</th>
             </thead>
             <tbody>
                 @foreach ($products as $product)
                     <tr>
+                        <td>{{$product->id}}</td>
                         <td>{{$product->name}}</td>
                         <td>{{$product->price}}</td>
-                        <td>Botão para Editar</td>
-                        <td>Botão para Apagar {{$product->id}}</td>
+                        <td>{{$product->description}}</td>
+                        <td>
+                            <form action="{{route('products.show', $product->id)}}" method="post">
+                                @csrf
+                                @method('GET')
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960"
+                                        width="20px" fill="#1C6EA4">
+                                        <path
+                                            d="M480.12-330q70.88 0 120.38-49.62t49.5-120.5q0-70.88-49.62-120.38T479.88-670Q409-670 359.5-620.38T310-499.88q0 70.88 49.62 120.38t120.5 49.5Zm-.36-58q-46.76 0-79.26-32.74-32.5-32.73-32.5-79.5 0-46.76 32.74-79.26 32.73-32.5 79.5-32.5 46.76 0 79.26 32.74 32.5 32.73 32.5 79.5 0 46.76-32.74 79.26-32.73 32.5-79.5 32.5Zm.24 188q-146 0-264-83T40-500q58-134 176-217t264-83q146 0 264 83t176 217q-58 134-176 217t-264 83Zm0-300Zm-.17 240Q601-260 702.5-325.5 804-391 857-500q-53-109-154.33-174.5Q601.34-740 480.17-740T257.5-674.5Q156-609 102-500q54 109 155.33 174.5Q358.66-260 479.83-260Z" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <!-- Botão que coloca produto no carrinho: Plano -->
+                            <form action="" method="post">
+                                @csrf
+                                @method('GET')
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960"
+                                        width="20px" fill="#1C6EA4">
+                                        <path
+                                            d="M465-613v-123H341v-60h124v-123h60v123h123v60H525v123h-60ZM289.79-80Q260-80 239-101.21t-21-51Q218-182 239.21-203t51-21Q320-224 341-202.79t21 51Q362-122 340.79-101t-51 21Zm404 0Q664-80 643-101.21t-21-51Q622-182 643.21-203t51-21Q724-224 745-202.79t21 51Q766-122 744.79-101t-51 21ZM62-820v-60h116l170 364h287.71L796-796h67L701-493q-11 19-28.56 30.5T634-451H331l-56 104h491v60H284q-37.66 0-57.33-30T224-378l64-118-148-324H62Z" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="{{route('products.update', $product->id)}}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960"
+                                        width="20px" fill="#1C6EA4">
+                                        <path
+                                            d="M180-120q-24 0-42-18t-18-42v-600q0-24 18-42t42-18h405l-60 60H180v600h600v-348l60-60v408q0 24-18 42t-42 18H180Zm300-360ZM360-360v-170l382-382q9-9 20-13t22-4q11 0 22.32 4.5Q817.63-920 827-911l83 84q8.61 8.96 13.3 19.78 4.7 10.83 4.7 22.02 0 11.2-4.5 22.7T910-742L530-360H360Zm508-425-84-84 84 84ZM420-420h85l253-253-43-42-43-42-252 251v86Zm295-295-43-42 43 42 43 42-43-42Z" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="{{route('products.delete', $product->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960"
+                                        width="20px" fill="#1C6EA4">
+                                        <path
+                                            d="M312-144q-29.7 0-50.85-21.15Q240-186.3 240-216v-480h-48v-72h192v-48h192v48h192v72h-48v479.57Q720-186 698.85-165T648-144H312Zm336-552H312v480h336v-480ZM384-288h72v-336h-72v336Zm120 0h72v-336h-72v336ZM312-696v480-480Z" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
             <tfoot>
                 <tr>
-                    <td class="links" colspan="4">
+                    <td class="links" colspan="8">
                         <a href="/store">Criar</a>
                     </td>
                 </tr>

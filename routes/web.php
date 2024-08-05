@@ -12,10 +12,10 @@ Route::get('/store', function(){
 });
 Route::get('/products', [ProductController::class, 'index']);
 
-Route::get('/products/{id}', [ProductController::class, 'show']);
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
 
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
-Route::delete('/products/{id}', [ProductController::class, 'delete']);
+Route::delete('/products/{id}', [ProductController::class, 'delete'])->name('products.delete');
 
-Route::put('/products/{id}', [ProductController::class, 'update']);
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');

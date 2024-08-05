@@ -1,68 +1,95 @@
-
 table.productsTable {
-    margin-block: 3em;
-    margin-inline:auto;
-    border: 1px solid #1C6EA4;
-    background-color: #EEEEEE;
-    width: 70%;
-    text-align: left;
-    border-collapse: collapse;
-    border-radius: 7px;
-  }
-  table.productsTable td, table.productsTable th {
-    border: 1px solid #AAAAAA;
-    padding: 3px 2px;
-    text-align: center;
-  }
-  table.productsTable tbody td {
-    font-size: 13px;
-  }
-  table.productsTable tr:nth-child(even) {
-    background: #D0E4F5;
-  }
-  table.productsTable thead {
-    background: #1C6EA4;
-    border-bottom: 2px solid #444444;
-  }
-  table.productsTable thead th {
-    font-size: 15px;
-    font-weight: bold;
-    color: #FFFFFF;
-    border-left: 2px solid #D0E4F5;
-  }
-  table.productsTable thead th:first-child {
-    border-left: none;
-  }
-  
-  table.productsTable tfoot {
-    font-size: 14px;
-    font-weight: bold;
-    color: #000000;
-    background: #D0E4F5;
-    background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    border-top: 2px solid #444444;
-  }
-  table.productsTable tfoot td {
-    font-size: 14px;
-  }
-  table.productsTable tfoot .links {
-    text-align: right;
-  }
-  table.productsTable tfoot .links a{
-    display: inline-block;
-    text-decoration: none;
-    background: #1C6EA4;
-    color: #FFFFFF;
-    padding: 5px 25px;
-    margin-inline: 3em;
-    border-radius: 5px;
-  } 
-  table.productsTable tfoot .links a:hover{
-    background: #073d61;
-    cursor:pointer;
-  }
-  table.productsTable tfoot .links a:active{
-    scale:.9;
-  }
+  margin-block: 3em;
+  margin-inline: auto;
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 70%;
+  text-align: left;
+  border-collapse: collapse;
+  border-radius: 7px;
+}
+
+table.productsTable td,
+table.productsTable th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+  text-align: center;
+}
+
+table.productsTable tbody td {
+  font-size: 13px;
+}
+
+table.productsTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+
+table.productsTable thead {
+  background: #1C6EA4;
+  border-bottom: 2px solid #444444;
+}
+
+table.productsTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+
+table.productsTable thead th:first-child {
+  border-left: none;
+}
+
+table.productsTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #000000;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+
+table.productsTable tfoot td {
+  font-size: 14px;
+}
+
+table.productsTable tfoot .links {
+  text-align: right;
+}
+
+table.productsTable tfoot .links a {
+  display: inline-block;
+  text-decoration: none;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 5px 25px;
+  margin-inline: 3em;
+  border-radius: 5px;
+}
+
+table.productsTable tfoot .links a:hover {
+  background: #073d61;
+  cursor: pointer;
+}
+
+table.productsTable tfoot .links a:active {
+  scale: .9;
+}
+
+*[type='submit'] {
+  border: none;
+  border-radius: 10px;
+  background-color: #5dbbcc46;
+}
+
+*[type='submit']:hover {
+  background-color: #258acebb;
+  cursor: pointer;
+}
+
+*[type='submit'] svg {
+  max-width: 2.5em;
+  max-height: 2.5em;
+}
