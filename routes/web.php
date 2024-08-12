@@ -10,9 +10,20 @@ Route::get('/token', function () {
 Route::get('/store', function(){
     return view('products.store');
 });
-Route::get('/products', [ProductController::class, 'index']);
 
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/delete/{id}', function($id){
+    $productController = new ProductController();
+    $product = $productController->show($id)->getOriginalContent();
+    return view('products.delete', ['product' => $product]);
+});
+
+Route::get('/update/{id}', function($id){
+    $productController = new ProductController();
+    $product = $productController->show($id)->getOriginalContent();
+    return view('products.update', ['product' => $product]);
+});
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 

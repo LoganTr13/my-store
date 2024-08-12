@@ -1,0 +1,32 @@
+main{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 3em;
+}
+p{
+    margin-block: .5em;
+}
+.btnChoose{    
+    margin: .7em;
+    padding: .5em 1.7em;
+    border-radius: 7px;
+    font-size: 1em;
+}
+input[type='submit']{
+    background-color: crimson;
+    color: azure;
+    border: none;
+}
+input[type='submit']:hover{
+    background-color: rgb(155, 16, 44);
+}
+a /* Botão de cancelar*/ {
+    background-color: rgb(168, 226, 221);
+    color: rgb(9, 41, 41);
+    border: none;
+    text-decoration: none;
+}
+a:hover{
+    background-color: rgb(122, 192, 186);;
+}

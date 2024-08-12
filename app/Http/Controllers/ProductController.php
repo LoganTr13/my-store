@@ -13,12 +13,14 @@ class ProductController extends Controller
         $price = $request->input('price');
         $description = $request->input('description');
 
-        $product = Product::create([
+        Product::create([
             "name" => $name,
             "price" => $price,
             "description" => $description
         ]);
-        return response($product); // não sei o que retornar, penso em fazer voltar para a pagina de lista, vou ver
+        return redirect()->route('products.index')
+            ->with(["message" => "Product Created!"])
+            ->setStatusCode(201);
     }
     public function show(int $id)
     {
@@ -33,15 +35,21 @@ class ProductController extends Controller
     public function delete(int $id)
     {
         Product::destroy($id);
-        return response('Produto de ID ' . $id . ' foi deletado!');
+        return redirect()->route('products.index')
+            ->with([
+                "message" => "Product $id Deleted!"
+            ]);
     }
-    public function update(int $id)
+    public function update(int $id, Request $request)
     {
         $product = Product::find($id)->update([
-            "name" => fake()->title(),
-            "description" => fake()->paragraph(),
-            "price" => fake()->randomFloat(min: 10, max: 100)
+            "name" => $request->input('name'),
+            "description" => $request->input('description'),
+            "price" => $request->input('price')
         ]);
-        return response($product);
+        return redirect()->route('products.index')
+            ->with([
+                "message" => "Product $id Updated!"
+            ]);
     }
 }
