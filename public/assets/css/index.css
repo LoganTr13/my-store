@@ -93,3 +93,7 @@ table.productsTable tfoot .links a:active {
   max-width: 2.5em;
   max-height: 2.5em;
 }
+
+a{
+  text-decoration: none;
+}
